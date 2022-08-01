@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script> 
+        $(document).ready(() => {
+            $(() => {
+                $("#lineProcessor").load("canvas.html"); 
+            });
+        });
+    </script> 
+</head>
+<body id="page-top">
+    <div>
+        <aside>
+            <nav class="navbar" id="sideNav">
+                <a class="nav-img" href="#page-top">
+                    <span class="d-none d-lg-block"><img class="faded-border rounded-circle" src="assets/img/raccoon.jpg" alt="..." /></span>
+                </a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav">
+                        <li class="nav-item about"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#interests">Interests</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#canvas">Canvas</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+    </div>
+    <div class="container-fluid">
+        <section class="resume-section" id="about">
+            <div>
+                <h1 class="text-large text-large mb-0"">
+                    Diogo
+                    <span class="text-large purple">Kraut</span>
+                </h1>
+                <h3 class="subheading">
+                    Av. Cel. Francisco H. dos Santos, 100 · Jardim das Américas, Curitiba, PR ·
+                    <a href="mailto:dpk16@inf.ufpr.br">dpk16@inf.ufpr.br</a>
+                </h3>
+                <p class="lead">
+                    I am a Computer Science student at Universidade Federal do Paraná (UFPR), and a Jr. Full-Stack
+                    developer at AOA Tech Partners who enjoys learning new frameworks and technologies.
+                </p>
+                <div class="social-icons">
+                    <a class="social-icon" href="https://www.linkedin.com/in/diogo-kraut/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="social-icon" href="https://github.com/DiogoKraut" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </section>
+        <hr class="divider"/>
+        <section class="resume-section" id="experience">
+            <div>
+                <h2 class="mb-5">Experience</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Jr. Full-Stack developer</h3>
+                        <div class="subheading mb-3">AOA Tech Partners</div>
+                        <p>
+                            Working as a fluid developer, adapting to the diverse requirements of the project.
+                            From back-end to front-end on multiple frameworks, including no-code platforms.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">May 2022 - Present</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">dev Intern</h3>
+                        <div class="subheading mb-3">AOA Tech Partners</div>
+                        <p>
+                            Part of a diverse team composed entirely of interns. Our team was placed on the company's
+                            Discovery Track, where we were given freedom to manage and develop our own projects.
+                        </p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">September 2021 - May 2022</span></div>
+                </div>
+            </div>
+        </section>
+        <hr class="divider"/>
+        <section class="resume-section" id="education">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Education</h2>
+                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Universidade Federal do Paraná</h3>
+                        <div class="subheading mb-3">Bachelor's degree</div>
+                        <div>Computer Science</div>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary">2016 - Present</span></div>
+                </div>
+                <div class="d-flex flex-column flex-md-row justify-content-between">
+                    <div class="flex-grow-1">
+                        <h3 class="mb-0">Phil Young's English School</h3>
+                        <div class="subheading mb-3">Certificate of Proficiency in English</div>
+                        <p>With Highest Honors</p>
+                    </div>
+                    <div class="flex-shrink-0"><span class="text-primary date">June 2014</span></div>
+                </div>
+            </div>
+        </section>
+        <hr class="divider"/>
+        <section class="resume-section" id="skills">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Skills</h2>
+                <div class="subheading mb-3">Programming Languages & Tools</div>
+                <div class="grid-container">
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-html5"></i>
+                        <p class="tech-label subheading">HTML5</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-css3-alt"></i>
+                        <p class="tech-label subheading">CSS3</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-js-square"></i>
+                        <p class="tech-label subheading">Javascript</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-angular"></i>
+                        <p class="tech-label subheading">Angular</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-react"></i>
+                        <p class="tech-label subheading">React JS</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-node-js"></i>
+                        <p class="tech-label subheading">Node Js</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <i class="fab fa-npm"></i>
+                        <p class="tech-label subheading">NPM</p>
+                    </div>
+                    <div class="grid-item tech-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M21.25 24h-7.031c-.133 0-.261-.053-.354-.147l-6.17-6.201c-.194-.195-.194-.511 0-.706l6.171-6.188c.094-.094.222-.148.355-.148h7.029c.202 0 .384.122.462.308.077.187.035.401-.107.544l-5.81 5.838 5.81 5.846c.143.144.185.358.107.544C21.634 23.878 21.452 24 21.25 24zM14.427 23h5.621l-5.313-5.346c-.194-.195-.194-.51 0-.705l5.312-5.338h-5.619L8.755 17.3 14.427 23zM6.278 16.046c-.133 0-.261-.053-.354-.147l-3.528-3.546c-.194-.195-.194-.51 0-.706l11.457-11.5c.125-.125.3-.17.459-.136h6.923c.202 0 .384.122.462.308.077.187.035.401-.107.544L6.633 15.899C6.539 15.993 6.412 16.046 6.278 16.046zM3.456 12l2.823 2.837L20.032 1.011h-5.629L3.456 12z"/></svg>
+                        <p class="tech-label subheading">Flutter</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr class="divider"/>
+        <section class="resume-section" id="interests">
+            <div class="resume-section-content">
+                <h2 class="mb-5">Interests</h2>
+                <p>
+                    Music is a big part of my life. From the moment I wake up to when I go to sleep there will be a song playing somewhere.
+                    Because of that I've also picked up the guitar 10 or so years ago, and I've been playing ever since.
+                </p>
+                <p class="mb-0">
+                    My other hobbies include video games of many kinds, as well as sci-fi and fantasy movies and TV shows.
+                </p>
+            </div>
+        </section>
+        <section class="resume-section" id="canvas">
+            <div id="lineProcessor"></div>
+        </section>
+    </div>
+</body>
+</html>
