@@ -12,6 +12,11 @@ export default class Point {
     u = u * u;
     return Math.sqrt(v + u) < this.radius;
   }
+
+  move(pos) {
+    this.x = pos.x;
+    this.y = pos.y;
+  }
   
 }
 
