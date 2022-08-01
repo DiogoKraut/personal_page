@@ -22,6 +22,9 @@ export default class Canvas {
     const line = new Line(start, end);
     this.lines.push(line);
   }
+  newLineContinous(a, b) {
+    this.lines.push(new Line(a, b, true))
+  }
 
   drawHelper() {
     this.context.beginPath();
@@ -42,15 +45,16 @@ export default class Canvas {
     this.clear(true);
     this.drawHelper();
     const slice = (2 * Math.PI) / edges;
-    const start = new Point(this.center.x + scale, this.center.y);
-
+    let start = new Point(this.center.x + scale, this.center.y);
+    
     for(let i = 1; i <= edges; i++) {
       const angle = slice * i;
       const end = new Point(start.x, start.y);
       start.x = this.center.x + scale * Math.cos(angle);
       start.y = this.center.y + scale * Math.sin(angle);
       
-      this.newLine(start, end);
+      this.newLineContinous(start, end);
+      start = end;
     }
     this.draw();
   }

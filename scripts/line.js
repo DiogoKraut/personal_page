@@ -1,9 +1,14 @@
 import { Vertex, Middle } from "./point.js";
 
 export default class Line {
-  constructor(start, end) {
-    this.start = new Vertex(start.x, start.y);
-    this.end = new Vertex(end.x, end.y);
+  constructor(start, end, test = false) {
+    if(test) {
+      this.start = start;
+      this.end = end;
+    } else {
+      this.start = new Vertex(start.x, start.y);
+      this.end = new Vertex(end.x, end.y);
+    }
     this.mid = new Middle((start.x + end.x)/2, (start.y + end.y)/2)
   }
 
