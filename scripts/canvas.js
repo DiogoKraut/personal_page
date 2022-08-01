@@ -8,7 +8,7 @@ export default class Canvas {
     this.context = this.canvasDOM.getContext("2d");
     this.canvasDOM.width = 1000;
     this.canvasDOM.height = 700;
-    this.center = new Point(Math.floor(this.canvasDOM.width / 2), Math.floor(this.canvasDOM.height / 2))
+    this.center = new Point(Math.floor(this.canvasDOM.width / 2), Math.floor(this.canvasDOM.height / 2), 'middle')
   }
   lines = [];
   clear(wipe = false) {
@@ -17,13 +17,19 @@ export default class Canvas {
   }
 
   newLine(a, b) {
-    const start = new Point(a.x, a.y);
-    const end = new Point(b.x, b.y);
+    const start = new Point(a.x, a.y, 'point');
+    const end = new Point(b.x, b.y, 'point');
     const line = new Line(start, end);
     this.lines.push(line);
   }
+
   newLineContinous(a, b) {
     this.lines.push(new Line(a, b, true))
+  }
+
+  removeLine(line) {
+    const index = this.lines.indexOf(line);
+    if(index !== -1) this.lines.splice(index, 1);
   }
 
   drawHelper() {
@@ -35,8 +41,8 @@ export default class Canvas {
     this.context.fillText("Left Click to move vertex", 700, 680);
     this.context.closePath();
 
-    const middleHelper = new Middle(690, 655);
-    const vertexHelper = new Vertex(690, 675);
+    const middleHelper = new Point(690, 655, 'middle');
+    const vertexHelper = new Point(690, 675, 'point');
     middleHelper.draw(this.context);
     vertexHelper.draw(this.context);
   }
@@ -45,16 +51,20 @@ export default class Canvas {
     this.clear(true);
     this.drawHelper();
     const slice = (2 * Math.PI) / edges;
-    let start = new Point(this.center.x + scale, this.center.y);
-    
+    const startRef = new Point(this.center.x + scale, this.center.y, 'vertex');
+    let start = startRef;
     for(let i = 1; i <= edges; i++) {
       const angle = slice * i;
-      const end = new Point(start.x, start.y);
+      const end = new Point(start.x, start.y, 'vertex');
       start.x = this.center.x + scale * Math.cos(angle);
       start.y = this.center.y + scale * Math.sin(angle);
       
-      this.newLineContinous(start, end);
-      start = end;
+      if(i == edges) {
+        this.newLineContinous(start, startRef);
+      } else {
+        this.newLineContinous(start, end);
+        start = end;
+      }
     }
     this.draw();
   }

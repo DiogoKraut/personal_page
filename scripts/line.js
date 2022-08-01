@@ -1,4 +1,4 @@
-import { Vertex, Middle } from "./point.js";
+import Point from "./point.js";
 
 export default class Line {
   constructor(start, end, test = false) {
@@ -6,10 +6,10 @@ export default class Line {
       this.start = start;
       this.end = end;
     } else {
-      this.start = new Vertex(start.x, start.y);
-      this.end = new Vertex(end.x, end.y);
+      this.start = new Point(start.x, start.y, 'point');
+      this.end = new Point(end.x, end.y, 'point');
     }
-    this.mid = new Middle((start.x + end.x)/2, (start.y + end.y)/2)
+    this.mid = new Point((start.x + end.x)/2, (start.y + end.y)/2, 'middle')
   }
 
   calculateMiddle() {
@@ -18,6 +18,7 @@ export default class Line {
   }
 
   draw(ctx) {
+    this.calculateMiddle();
     ctx.beginPath();
     ctx.lineWidth = 2;
     ctx.moveTo(this.start.x, this.start.y);
@@ -51,7 +52,13 @@ export default class Line {
 
   }
 
-  split() {
+  split(canvas) {
+    if(this.end.type == 'Point') {
+      canvas.newLineContinous(this.start, this.mid);
+      canvas.newLineContinous(this.mid, this.end);
+      canvas.removeLine(this);
+    }
+    canvas.newLine(this.mid, this.end);
     this.end.move(this.mid);
     this.calculateMiddle();
   }

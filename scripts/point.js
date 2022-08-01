@@ -1,8 +1,9 @@
 export default class Point {
-  constructor(x, y) {
+  constructor(x, y, type) {
     this.x = x;
     this.y = y;
     this.radius = 7;
+    this.type = type;
   }
 
   isInside(a) {
@@ -21,7 +22,9 @@ export default class Point {
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI)
-    ctx.fillStyle = '#f48225'
+    if(this.type == 'vertex') ctx.fillStyle = '#f48225';
+    if(this.type == 'middle') ctx.fillStyle = '#009a68';
+    if(this.type == 'point')  ctx.fillStyle = '#8ED6FF';
     ctx.fill()
     ctx.stroke();
     ctx.closePath();

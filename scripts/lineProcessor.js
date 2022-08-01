@@ -16,12 +16,11 @@ function draw() {
 
   canvas.canvasDOM.addEventListener('mousedown', (e) => {
     if(e.button != 0 && e.button != 2) return;
-    const mousePos = new Point(e.offsetX, e.offsetY);
+    const mousePos = new Point(e.offsetX, e.offsetY, 'vertex');
     selection = canvas.findLine(mousePos);
     if(e.button == 2) {
-      if(selection?.point?.constructor.name == 'Middle') {
-        canvas.newLine(selection.line.mid, selection.line.end);
-        selection.line.split();
+      if(selection?.point?.type == 'middle') {
+        selection.line.split(canvas);
         canvas.clear();
         canvas.draw();
         selection = null;
@@ -30,18 +29,18 @@ function draw() {
   })
   
   canvas.canvasDOM.addEventListener('mousemove', (e) => {
-    const mousePos = new Point(e.offsetX, e.offsetY);
+    const mousePos = new Point(e.offsetX, e.offsetY, 'vertex');
     // console.log(mousePos)
     if(!selection) return;
-    switch (selection?.point?.constructor.name) {
-      case 'Point':
-      case 'Vertex':
+    switch (selection?.point?.type) {
+      case 'point':
+      case 'vertex':
         selection.point.move(mousePos);
         selection.line.calculateMiddle();
         canvas.clear();
         canvas.draw();
         break;
-      case 'Middle':
+      case 'middle':
         selection.line.move(mousePos);
         canvas.clear();
         canvas.draw();
